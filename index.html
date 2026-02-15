@@ -7,21 +7,25 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
+      /* Paleta da Marca */
       --brand-blue: #2A3B90;
       --brand-red: #EE3B3B;
       --brand-grey: #4A4A4A;
       
+      /* Interface */
       --bg-body: #F8FAFC;
       --bg-white: #ffffff;
       --text-main: #334155;
+      
+      /* Sombras */
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -35,7 +39,7 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+    /* --- HEADER --- */
     header { 
       background: var(--brand-blue); 
       padding: 0.8rem 5%; 
@@ -46,7 +50,6 @@
       top: 0; 
       z-index: 1000; 
       box-shadow: var(--shadow-md); 
-      transition: padding 0.3s;
     }
 
     .logo { 
@@ -57,7 +60,6 @@
       display: flex; 
       align-items: center; 
       gap: 12px; 
-      letter-spacing: 0.5px;
     }
     
     .logo img {
@@ -68,43 +70,63 @@
       border-radius: 4px;
     }
 
-    /* HERO SECTION */
+    /* --- HERO SECTION --- */
     .hero { 
-      background: linear-gradient(135deg, rgba(42, 59, 144, 0.85), rgba(74, 74, 74, 0.8)), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(31, 41, 55, 0.8)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); 
       background-size: cover; 
       background-position: center; 
-      height: 45vh;
-      min-height: 300px;
+      background-attachment: fixed; 
+      height: 60vh; 
+      min-height: 450px;
       display: flex; 
-      flex-direction: column; 
       justify-content: center; 
       align-items: center; 
-      text-align: center; 
-      color: var(--bg-white); 
       padding: 0 20px; 
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    
-    .hero h1 { 
-      font-size: 3.2rem; 
-      font-weight: 700; 
-      margin-bottom: 0.5rem; 
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      line-height: 1.2;
-    }
-    
-    .hero p {
-      font-size: 1.2rem;
-      font-weight: 300;
-      opacity: 0.9;
+      margin-bottom: 3rem;
     }
 
-    /* CATALOG */
+    .hero-content {
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      color: var(--bg-white);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero h1 { 
+      font-size: 3rem; 
+      font-weight: 800; 
+      margin-bottom: 1rem; 
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.15rem; 
+      font-weight: 400;   
+      opacity: 0.95;
+      margin-bottom: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- CATÁLOGO --- */
     .catalog { 
       padding: 2rem 5%; 
       display: grid; 
-      /* minmax ajustado para 250px para caber melhor em telas estreitas */
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
       gap: 2rem; 
       max-width: 1200px; 
@@ -125,7 +147,7 @@
     }
     
     .product-card:hover { 
-      transform: translateY(-5px); /* Movimento mais sutil no mobile */
+      transform: translateY(-5px); 
       box-shadow: var(--shadow-lg);
       border-color: rgba(42, 59, 144, 0.1);
     }
@@ -147,10 +169,7 @@
       transition: transform 0.3s ease;
     }
 
-    /* Hover effect desativado em telas de toque via CSS media hover se desejado, mantido aqui por simplicidade */
-    .product-card:hover .product-img img {
-      transform: scale(1.05);
-    }
+    .product-card:hover .product-img img { transform: scale(1.05); }
     
     .product-info { 
       padding: 1.5rem; 
@@ -166,7 +185,16 @@
       color: var(--brand-grey);
       margin-bottom: 1rem;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1.3;
+    }
+
+    /* Classe nova para a especificação do produto (linha de baixo) */
+    .product-spec {
+      display: block; /* Força quebra de linha */
+      font-size: 0.9em;
+      color: #64748b; /* Cinza mais claro */
+      font-weight: 400;
+      margin-top: 4px;
     }
     
     .btn-rent { 
@@ -190,7 +218,7 @@
     .btn-rent:hover { background: #c92a2a; }
     .btn-rent:active { transform: translateY(1px); }
 
-    /* FOOTER */
+    /* --- FOOTER --- */
     footer { 
       background: var(--brand-grey); 
       color: #e2e8f0; 
@@ -230,7 +258,7 @@
       color: #94a3b8;
     }
 
-    /* MODAL */
+    /* --- MODAL --- */
     .modal { 
       display: none; 
       position: fixed; 
@@ -241,13 +269,12 @@
       height: 100%; 
       background: rgba(30, 41, 59, 0.7); 
       backdrop-filter: blur(4px); 
-      /* Ajuste para mobile: permite scroll se o modal for maior que a tela */
       overflow-y: auto;
     }
     
     .modal-content { 
       background: var(--bg-white); 
-      margin: 10vh auto; /* Margem relativa à altura da tela */
+      margin: 15vh auto; 
       padding: 2.5rem; 
       border-radius: 16px; 
       width: 90%; 
@@ -258,7 +285,6 @@
       animation: slideDown 0.3s ease-out;
     }
 
-    /* Botão Confirmar (com espaçamento vertical extra) */
     .modal-content .btn-rent {
       width: auto; 
       padding: 14px 30px; 
@@ -289,38 +315,20 @@
       background: #f1f5f9;
     }
     
-    /* --- AJUSTES ESPECÍFICOS PARA TABLETS E CELULARES --- */
+    /* --- MEDIA QUERIES --- */
     @media (max-width: 768px) { 
-      /* Hero menor */
-      .hero { height: auto; padding: 4rem 1rem; }
+      .hero { padding: 5rem 1rem 3rem; height: auto; }
       .hero h1 { font-size: 2.2rem; }
-      
-      /* Catálogo com menos margem lateral */
-      .catalog { padding: 2rem 1rem; gap: 1.5rem; }
-      
-      /* Ajuste da imagem para telas menores */
+      .hero-content { padding: 2rem 1.5rem; }
       .product-img { height: 180px; }
     }
 
     @media (max-width: 480px) {
-      /* Header mais compacto */
       header { padding: 0.8rem 1rem; }
       .logo { font-size: 1.2rem; }
-      .logo img { height: 35px; }
-
-      /* Títulos menores */
-      .hero h1 { font-size: 1.8rem; }
-      .hero p { font-size: 1rem; }
-
-      /* Footer centralizado para facilitar leitura em telas estreitas */
       .footer-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
       .footer-section h4 { border-left: none; border-bottom: 3px solid var(--brand-red); display: inline-block; padding-left: 0; padding-bottom: 5px; }
       .footer-section p { justify-content: center; }
-      
-      /* Modal ocupa quase toda a largura */
-      .modal-content { width: 95%; padding: 2rem 1.5rem; margin: 15% auto; }
-      
-      /* Botões full width no mobile ficam melhores para toque */
       .modal-content .btn-rent { width: 100%; } 
       .btn-secondary { width: 100%; }
     }
@@ -336,8 +344,10 @@
   </header>
 
   <section class="hero">
-    <h1>Aluguel de Equipamentos</h1>
-    <p>A solução completa para sua obra ou manutenção.</p>
+    <div class="hero-content">
+      <h1>Maqnorte Locações</h1>
+      <p>🏗️ Precisando de máquinas para a sua obra? Alugar na Maqnorte Locações sai mais barato e ainda economiza tempo e mão de obra — sua obra anda mais rápido e com muito menos dor de cabeça!</p>
+    </div>
   </section>
 
   <main class="catalog" id="catalog">
@@ -381,16 +391,16 @@
   <script>
     const phoneNumber = '5599991151745';
 
-    // Lista de Equipamentos
+    // Lista de Equipamentos atualizada (Nome separado da Especificação)
     const equipamentos = [
-      { nome: "Betoneira monofásica 400 Lt.", imagem: "https://img.lojadomecanico.com.br/IMAGENS/31/284/147417/1596113209096.JPG" },
-      { nome: "Cortadora de piso (300 a 350mm)", imagem: "https://mestredaobralocacoes.com.br/wp-content/uploads/2023/07/cortadora-de-concreto-sm-100x100.png" },
-      { nome: "Placa vibratória", imagem: "https://http2.mlstatic.com/D_NQ_NP_884393-MLA99503124248_112025-O.webp" },
-      { nome: "Cortadora de piso (350 a 500mm)", imagem: "https://http2.mlstatic.com/D_NQ_NP_808710-MLB70087997688_062023-O.webp" },
-      { nome: "Martelete (30kg)", imagem: "https://http2.mlstatic.com/D_Q_NP_890734-MLA100029105801_122025-O.webp" },
-      { nome: "Martelete (10kg)", imagem: "https://http2.mlstatic.com/D_NQ_NP_604648-MLB89360783422_082025-O.webp" },
-      { nome: "Compactador (sapinho)", imagem: "https://d26pdq3f5wxbiy.cloudfront.net/Custom/Content/Products/10/88/1088275_compactador-de-solo-a-gasolina-csm-srv620-weber-motor-honda-gxr120-4t-3-7cv-p15f085m030015_m1_638550175726244867.webp" },
-      { nome: "Martelete (16kg)", imagem: "https://http2.mlstatic.com/D_NQ_NP_829964-MLA99953510541_112025-O.webp" }
+      { nome: "Betoneira monofásica", spec: "(400 Lt.)", imagem: "https://img.lojadomecanico.com.br/IMAGENS/31/284/147417/1596113209096.JPG" },
+      { nome: "Cortadora de piso", spec: "(300 a 350mm)", imagem: "https://mestredaobralocacoes.com.br/wp-content/uploads/2023/07/cortadora-de-concreto-sm-100x100.png" },
+      { nome: "Placa vibratória", spec: "", imagem: "https://http2.mlstatic.com/D_NQ_NP_884393-MLA99503124248_112025-O.webp" },
+      { nome: "Cortadora de piso", spec: "(350 a 500mm)", imagem: "https://http2.mlstatic.com/D_NQ_NP_808710-MLB70087997688_062023-O.webp" },
+      { nome: "Martelete", spec: "(30kg)", imagem: "https://http2.mlstatic.com/D_Q_NP_890734-MLA100029105801_122025-O.webp" },
+      { nome: "Martelete", spec: "(10kg)", imagem: "https://http2.mlstatic.com/D_NQ_NP_604648-MLB89360783422_082025-O.webp" },
+      { nome: "Compactador", spec: "(sapinho)", imagem: "https://d26pdq3f5wxbiy.cloudfront.net/Custom/Content/Products/10/88/1088275_compactador-de-solo-a-gasolina-csm-srv620-weber-motor-honda-gxr120-4t-3-7cv-p15f085m030015_m1_638550175726244867.webp" },
+      { nome: "Martelete", spec: "(16kg)", imagem: "https://http2.mlstatic.com/D_NQ_NP_829964-MLA99953510541_112025-O.webp" }
     ];
 
     function renderProducts() {
@@ -401,8 +411,11 @@
             <img src="${item.imagem}" alt="${item.nome}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Imagem+Indisponível';">
           </div>
           <div class="product-info">
-            <h3>${item.nome}</h3>
-            <button onclick="openModal('${item.nome}')" class="btn-rent">
+            <h3>
+              ${item.nome}
+              ${item.spec ? `<span class="product-spec">${item.spec}</span>` : ''}
+            </h3>
+            <button onclick="openModal('${item.nome} ${item.spec}')" class="btn-rent">
               <i class="fab fa-whatsapp"></i> ALUGUE
             </button>
           </div>
